@@ -6,6 +6,5 @@ RUN apt-get update \
 
 RUN curl -fsSL https://maple.dev/cli/install | sh
 
-# maple escuta em 127.0.0.1:4318; socat expõe 0.0.0.0:8080 e repassa pra ele
 EXPOSE 8080
-CMD sh -c 'maple start --offline & exec socat TCP-LISTEN:8080,fork,reuseaddr TCP:127.0.0.1:4318'
+CMD sh -c 'maple start --offline --reset & exec socat TCP-LISTEN:8080,fork,reuseaddr TCP:127.0.0.1:4318'
