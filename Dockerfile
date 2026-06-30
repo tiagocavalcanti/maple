@@ -10,4 +10,4 @@ COPY shim.js /opt/shim.js
 COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 8080
-CMD sh -c 'maple start --offline & exec nginx -g "daemon off;"'
+CMD sh -c 'maple start --offline --reset & exec nginx -g "daemon off;"'
